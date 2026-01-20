@@ -22,6 +22,19 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
+dependencies = [
+    "pipecat-ai",
+]
+
+[dependency-groups]
+dev = [
+    "pipecat-ai-whisker>=0.0.11",
+    "pipecat-ai[daily,local-smart-turn-v3,runner,silero,webrtc]>=0.0.99",
+    "pipecat-respeecher>=0.1.1",
+]
+vllm = [
+    "vllm>=0.13.0",
+]
 
 [project.urls]
 Source = "https://github.com/respeecher/pipecat-audio-vllm"
@@ -35,8 +48,3 @@ where = ["src"]
 [build-system]
 requires = ["setuptools>=64", "setuptools_scm>=8"]
 build-backend = "setuptools.build_meta"
-
-[dependency-groups]
-dev = [
-    "vllm>=0.13.0",
-]
