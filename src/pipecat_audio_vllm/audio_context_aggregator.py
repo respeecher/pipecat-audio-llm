@@ -35,7 +35,9 @@ class AudioContextAggregator(FrameProcessor):
             self._is_user_speaking = True
         elif isinstance(frame, UserStoppedSpeakingFrame):
             self._is_user_speaking = False
-            await self._context.add_audio_frames_message(audio_frames=self._audio_frames, text="")
+            await self._context.add_audio_frames_message(
+                audio_frames=self._audio_frames, text=""
+            )
             await self._context_aggregator.push_frame(
                 LLMContextFrame(context=self._context)
             )
