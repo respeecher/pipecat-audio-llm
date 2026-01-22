@@ -54,13 +54,14 @@ from pipecat.runner.types import RunnerArguments
 from pipecat.runner.utils import create_transport
 from pipecat.transports.base_transport import BaseTransport, TransportParams
 from pipecat.transports.daily.transport import DailyParams
-from pipecat.turns.user_stop.turn_analyzer_user_turn_stop_strategy import (
-    TurnAnalyzerUserTurnStopStrategy,
-)
 from pipecat.turns.user_turn_strategies import UserTurnStrategies
 from pipecat_respeecher import RespeecherTTSService
 from pipecat_whisker import WhiskerObserver
-from pipecat_audio_vllm import AudioLLMService, AudioContextAggregator
+from pipecat_audio_vllm import (
+    AudioLLMService,
+    AudioContextAggregator,
+    AudioUserTurnStopStrategy,
+)
 
 logger.info("✅ All components loaded successfully!")
 
@@ -90,9 +91,7 @@ async def run_bot(transport: BaseTransport, runner_args: RunnerArguments):
         user_params=LLMUserAggregatorParams(
             user_turn_strategies=UserTurnStrategies(
                 stop=[
-                    TurnAnalyzerUserTurnStopStrategy(
-                        turn_analyzer=LocalSmartTurnAnalyzerV3()
-                    )
+                    AudioUserTurnStopStrategy(turn_analyzer=LocalSmartTurnAnalyzerV3())
                 ]
             ),
         ),
