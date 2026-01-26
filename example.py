@@ -5,14 +5,12 @@
 # SPDX-License-Identifier: BSD 2-Clause License
 #
 
-"""Respeecher Quickstart Example.
+"""Audio LLM Quickstart Example.
 
 The example runs a simple voice AI bot that you can connect to using your
 browser and speak with it. You can also deploy this bot to Pipecat Cloud.
 
 Required AI services:
-- Deepgram (Speech-to-Text)
-- Google or Cerebras (LLM)
 - Respeecher (Text-to-Speech)
 
 Run the bot using::
