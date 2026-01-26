@@ -3376,21 +3376,21 @@ requires-dist = [{ name = "pipecat-ai" }]
 dev = [
     { name = "pipecat-ai", extras = ["daily", "local-smart-turn-v3", "runner", "silero", "webrtc"], specifier = ">=0.0.99" },
     { name = "pipecat-ai-whisker", specifier = ">=0.0.11" },
-    { name = "pipecat-respeecher", specifier = ">=0.1.1" },
+    { name = "pipecat-respeecher", specifier = ">=0.1.2" },
 ]
 vllm = [{ name = "vllm", extras = ["audio"], specifier = ">=0.13.0" }]
 
 [[package]]
 name = "pipecat-respeecher"
-version = "0.1.1"
+version = "0.1.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pipecat-ai" },
     { name = "respeecher" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/48/0a/9b9fbab781ec9cdca0f0848d5af59b9b9803fc8e4e871e9ad4bf389d8f43/pipecat_respeecher-0.1.1.tar.gz", hash = "sha256:db3a56f969da68c12249b58c279dcc646ae82228fc13e3f92b87f4e75632e66b", size = 287669, upload-time = "2026-01-16T15:13:52.941Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/a7/da/204085d5840b80365a00a3f7d3ef56115e2839782aee55c896038fdc91aa/pipecat_respeecher-0.1.2.tar.gz", hash = "sha256:1cae77cb1c24735fecbd9ec8ad3f52233f5168dfdb4f0015da7e803f76642d45", size = 288110, upload-time = "2026-01-26T15:11:54.294Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/3c/62/630dcaa63fc4ea00a57250473db6fce47a50d193b50a272ab5f670c2ffa9/pipecat_respeecher-0.1.1-py3-none-any.whl", hash = "sha256:dfd54151d60bce3ffdacd22e9d6ac4f0784527571f2377c7b7616f254edabfe7", size = 7135, upload-time = "2026-01-16T15:13:50.589Z" },
+    { url = "https://files.pythonhosted.org/packages/34/15/3bba0899acbc30657ba25953137b5c450b8c8f828b08f8142ee0b34df731/pipecat_respeecher-0.1.2-py3-none-any.whl", hash = "sha256:dc4e2e98b956ca59db91d1218cc5ad3c50af2fa7d47fe7dddeb1efeca784e0a3", size = 7292, upload-time = "2026-01-26T15:11:52.095Z" },
 ]
 
 [[package]]
