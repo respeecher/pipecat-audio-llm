@@ -65,4 +65,5 @@ class AudioUserTurnStopStrategy(BaseUserTurnStopStrategy):
         if prediction:
             await self.push_frame(MetricsFrame(data=[prediction]))
 
-        await self.trigger_user_turn_stopped()
+        if state == EndOfTurnState.COMPLETE:
+            await self.trigger_user_turn_stopped()
