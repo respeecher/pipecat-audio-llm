@@ -2103,7 +2103,7 @@ wheels = [
 
 [[package]]
 name = "pipecat-ai"
-version = "0.0.99"
+version = "0.0.100"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiofiles" },
@@ -2124,9 +2124,9 @@ dependencies = [
     { name = "soxr" },
     { name = "wait-for2", marker = "python_full_version < '3.12'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/38/28/5f5f358e64d690e8fe96ada12d1a17ddf419c51f4764fd00686ef020a7e8/pipecat_ai-0.0.99.tar.gz", hash = "sha256:748b7f1d326cd0d8ec5ccdcef817966f25c56924b32307b1ed65395f297cce39", size = 10840935, upload-time = "2026-01-14T01:18:37.367Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/53/e9/f377fe49617721d41e3f6d563069849d6d1047c7b4cf4e6dfcb143a868a5/pipecat_ai-0.0.100.tar.gz", hash = "sha256:028a6203094f182461f8065a9c5fd92180038826a52ef1322dac2e258190f9f2", size = 10855536, upload-time = "2026-01-21T03:36:59.613Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f4/ff/3d284a150f0565a65e2b5c119a5b1ba567c59abb8b2197cc2c538bec7b3b/pipecat_ai-0.0.99-py3-none-any.whl", hash = "sha256:e4dded7b592bfe1f91144b16e80ad4feb12ae5f17f78c45cc146e9f05bed2836", size = 10523911, upload-time = "2026-01-14T01:18:35.032Z" },
+    { url = "https://files.pythonhosted.org/packages/6c/23/4f77c613fdcd5a581a5df0227bfd6e8554151e3f5a423c1e4b2a42b6d3d5/pipecat_ai-0.0.100-py3-none-any.whl", hash = "sha256:1f832329dcb0f5d26f0a478df3a40007b1d3032c9b84f66d3f80225bb59d2f30", size = 10539423, upload-time = "2026-01-21T03:36:56.974Z" },
 ]
 
 [package.optional-dependencies]
@@ -2181,7 +2181,7 @@ wheels = [
 
 [[package]]
 name = "pipecat-audio-llm"
-version = "0.1.0"
+version = "0.1.2"
 source = { editable = "." }
 dependencies = [
     { name = "pipecat-ai" },
@@ -2199,22 +2199,22 @@ requires-dist = [{ name = "pipecat-ai" }]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "pipecat-ai", extras = ["daily", "local-smart-turn-v3", "runner", "silero", "webrtc"], specifier = ">=0.0.99" },
+    { name = "pipecat-ai", extras = ["daily", "local-smart-turn-v3", "runner", "silero", "webrtc"], specifier = "==0.0.100" },
     { name = "pipecat-ai-whisker", specifier = ">=0.0.11" },
-    { name = "pipecat-respeecher", specifier = ">=0.1.2" },
+    { name = "pipecat-respeecher", specifier = ">=0.1.4" },
 ]
 
 [[package]]
 name = "pipecat-respeecher"
-version = "0.1.2"
+version = "0.1.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pipecat-ai" },
     { name = "respeecher" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a7/da/204085d5840b80365a00a3f7d3ef56115e2839782aee55c896038fdc91aa/pipecat_respeecher-0.1.2.tar.gz", hash = "sha256:1cae77cb1c24735fecbd9ec8ad3f52233f5168dfdb4f0015da7e803f76642d45", size = 288110, upload-time = "2026-01-26T15:11:54.294Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ea/04/2dd478fc18490cd18bee488f6dfb1bed77c32abc03fc246c601e8fa0e6e6/pipecat_respeecher-0.1.4.tar.gz", hash = "sha256:7ccd3524db1d173f0a3d80751a62def29402a25399fa71a69ec0a240bf1ba29f", size = 288463, upload-time = "2026-02-11T14:28:58.26Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/34/15/3bba0899acbc30657ba25953137b5c450b8c8f828b08f8142ee0b34df731/pipecat_respeecher-0.1.2-py3-none-any.whl", hash = "sha256:dc4e2e98b956ca59db91d1218cc5ad3c50af2fa7d47fe7dddeb1efeca784e0a3", size = 7292, upload-time = "2026-01-26T15:11:52.095Z" },
+    { url = "https://files.pythonhosted.org/packages/d4/54/7854345876a73757eb2b0b572480fc2747f55c6ac6892f1cdd6f5b4a2dc8/pipecat_respeecher-0.1.4-py3-none-any.whl", hash = "sha256:9e3ae99d1f9f9ccc33055d7e00c000bdba1d884a4d3d8e437657ec4c71af3887", size = 7501, upload-time = "2026-02-11T14:28:55.595Z" },
 ]
 
 [[package]]

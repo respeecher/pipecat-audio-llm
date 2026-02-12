@@ -1,6 +1,6 @@
 [project]
 name = "pipecat-audio-llm"
-version = "0.1.1"
+version = "0.1.2"
 description = "Audio-native LLM utilities for Pipecat"
 license = "BSD-2-Clause"
 license-files = ["LICENSE"]
@@ -29,8 +29,8 @@ dependencies = [
 [dependency-groups]
 dev = [
     "pipecat-ai-whisker>=0.0.11",
-    "pipecat-ai[daily,local-smart-turn-v3,runner,silero,webrtc]>=0.0.99",
-    "pipecat-respeecher>=0.1.2",
+    "pipecat-ai[daily,local-smart-turn-v3,runner,silero,webrtc]==0.0.100",
+    "pipecat-respeecher>=0.1.4",
 ]
 
 [project.urls]
