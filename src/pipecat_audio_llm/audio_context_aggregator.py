@@ -2,16 +2,24 @@ from collections import deque
 from pipecat.processors.frame_processor import FrameProcessor
 from pipecat.processors.aggregators.llm_context import LLMContext
 from pipecat.frames.frames import (
+    TranscriptionFrame,
+    InterimTranscriptionFrame,
     InputAudioRawFrame,
     LLMContextFrame,
     UserStartedSpeakingFrame,
     UserStoppedSpeakingFrame,
 )
+from pipecat.utils.time import time_now_iso8601
 
 
 class AudioContextAggregator(FrameProcessor):
     def __init__(
-        self, context: LLMContext, *, start_secs: float = 0.2, text: str | None = None
+        self,
+        context: LLMContext,
+        *,
+        start_secs: float = 0.2,
+        text: str | None = None,
+        push_visual_transcription: bool = False,
     ):
         super().__init__()
         self._context = context
@@ -21,11 +29,15 @@ class AudioContextAggregator(FrameProcessor):
         self._is_user_speaking = False
         self._text = text
 
+        self._push_visual_transcription = push_visual_transcription
+        self._visual_transcription = ""
+
     async def process_frame(self, frame, direction):
         await super().process_frame(frame, direction)
 
         if isinstance(frame, UserStartedSpeakingFrame):
             self._is_user_speaking = True
+
         elif isinstance(frame, UserStoppedSpeakingFrame):
             self._is_user_speaking = False
 
@@ -40,11 +52,39 @@ class AudioContextAggregator(FrameProcessor):
             self._context.add_message(message)
 
             await self.push_frame(LLMContextFrame(context=self._context))
+
+            if self._push_visual_transcription:
+                await self.push_frame(
+                    TranscriptionFrame(
+                        self._visual_transcription,
+                        "",
+                        time_now_iso8601(),
+                    )
+                )
+                self._visual_transcription = ""
+
         elif isinstance(frame, InputAudioRawFrame):
             self._audio_frames.append(frame)
             self._audio_duration += self._get_duration(frame)
 
-            if not self._is_user_speaking:
+            if self._is_user_speaking:
+                new_transcription_length = int(self._audio_duration * 20)
+
+                if self._push_visual_transcription and new_transcription_length > len(
+                    self._visual_transcription
+                ):
+                    self._visual_transcription += chr(0x1F4AC) * (
+                        new_transcription_length - len(self._visual_transcription)
+                    )
+
+                    await self.push_frame(
+                        InterimTranscriptionFrame(
+                            self._visual_transcription,
+                            "",
+                            time_now_iso8601(),
+                        )
+                    )
+            else:
                 while self._audio_duration > self._start_secs:
                     popped_frame = self._audio_frames.popleft()
                     self._audio_duration -= self._get_duration(popped_frame)
