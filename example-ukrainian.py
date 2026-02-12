@@ -79,7 +79,7 @@ async def run_bot(transport: BaseTransport, runner_args: RunnerArguments):
         api_key=os.getenv("RESPEECHER_API_KEY"),
         voice_id="olesia-conversation",
         model="",
-        url="wss://ta-01kgqafe8emyhp77yfjvct8088-8000.wo-3aegwvnlb3y4d50je2macj6ye.w.modal.host"
+        url="wss://ta-01kgqafe8emyhp77yfjvct8088-8000.wo-3aegwvnlb3y4d50je2macj6ye.w.modal.host",
     )
 
     messages = [
