@@ -45,6 +45,9 @@ class AudioContextAggregator(FrameProcessor):
                 audio_frames=self._audio_frames, text=self._text or ""
             )
 
+            self._audio_frames.clear()
+            self._audio_duration = 0
+
             if self._text is None:
                 assert message["content"][0]["type"] == "text"
                 del message["content"][0]
@@ -68,7 +71,7 @@ class AudioContextAggregator(FrameProcessor):
             self._audio_duration += self._get_duration(frame)
 
             if self._is_user_speaking:
-                new_transcription_length = int(self._audio_duration * 20)
+                new_transcription_length = max(1, int(self._audio_duration * 5))
 
                 if self._push_visual_transcription and new_transcription_length > len(
                     self._visual_transcription
@@ -93,4 +96,6 @@ class AudioContextAggregator(FrameProcessor):
 
     @staticmethod
     def _get_duration(frame: InputAudioRawFrame) -> float:
-        return len(frame.audio) / 16 * frame.num_channels / frame.sample_rate
+        # Note: official foundational examples in Pipecat use another formula for some reason:
+        # len(frame.audio) / 16 * frame.num_channels / frame.sample_rate
+        return len(frame.audio) / 2 / frame.num_channels / frame.sample_rate
