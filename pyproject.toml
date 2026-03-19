@@ -3,7 +3,6 @@ name = "pipecat-audio-llm"
 version = "0.1.2"
 description = "Audio-native LLM utilities for Pipecat"
 license = "BSD-2-Clause"
-license-files = ["LICENSE"]
 readme = "README.md"
 requires-python = ">=3.10"
 keywords = ["pipecat-ai", "pipecat"]
